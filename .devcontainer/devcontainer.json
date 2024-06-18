@@ -1,0 +1,24 @@
+{
+    "name": "Dataviz Streamlit",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.terminal.activateEnvironment": false
+    },
+    "forwardPorts": [8501],
+    "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-vscode-remote.remote-containers"
+    ],
+    "remoteUser": "root",
+    "postCreateCommand": "streamlit run /app/dataviz_charts/main.py --server.port=8501 --server.address=0.0.0.0",
+    "mounts": [
+        "source=/mnt/c/Users/marco/OneDrive/Área de Trabalho/viz_data_mestrado_trabalhos/dataviz_masters,target=/workspace,type=bind",
+        "source=${localWorkspaceFolder}/.streamlit,target=/root/.streamlit,type=bind"
+    ]
+}
