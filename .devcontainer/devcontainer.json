@@ -1,8 +1,8 @@
 {
-    "name": "Dataviz Streamlit",
+    "name": "QReport Streamlit",
     "build": {
-        "context": ".",
-        "dockerfile": "Dockerfile"
+        "context": "..",
+        "dockerfile": "../Dockerfile"
     },
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
@@ -12,13 +12,12 @@
     "forwardPorts": [8501],
     "extensions": [
         "ms-python.python",
-        "ms-toolsai.jupyter",
-        "ms-vscode-remote.remote-containers"
+        "ms-toolsai.jupyter"
     ],
     "remoteUser": "root",
     "postCreateCommand": "streamlit run /app/dataviz_charts/main.py --server.port=8501 --server.address=0.0.0.0",
     "mounts": [
-        "source=/mnt/c/Users/marco/OneDrive/Área de Trabalho/viz_data_mestrado_trabalhos/dataviz_masters,target=/workspace,type=bind",
+        "source=${localWorkspaceFolder}/dataviz_charts,target=/app/dataviz_charts,type=bind",
         "source=${localWorkspaceFolder}/.streamlit,target=/root/.streamlit,type=bind"
     ]
-}
+  }
