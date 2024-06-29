@@ -187,7 +187,9 @@ def plot_stacked_bar_percentage_education_level_by_gender(df: DataFrame) -> None
 
     data_aggregated = data_filtered.groupby(['Nivel de Ensino', 'Genero']).size().reset_index(name='count')
     data_aggregated['percentage'] = data_aggregated.apply(lambda row: (row['count'] / total_por_genero[row['Genero']]) * 100, axis=1)
-
+    order_list = ['Prefiro não informar','Não tenho graduação formal','Estudante de Graduação','Graduação/Bacharelado','Pós-graduação','Mestrado','Doutorado ou Phd']
+    data_aggregated['Nivel de Ensino'] = pd.Categorical(data_aggregated['Nivel de Ensino'], categories=order_list, ordered=True)
+    data_aggregated = data_aggregated.sort_values(by=['Nivel de Ensino'])
     fig = go.Figure()
 
     color_dict = {
@@ -210,7 +212,6 @@ def plot_stacked_bar_percentage_education_level_by_gender(df: DataFrame) -> None
         yaxis_title='Porcentagem',
         barmode='stack'
     )
-
     return fig
 
 
