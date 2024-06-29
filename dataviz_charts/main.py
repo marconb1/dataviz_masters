@@ -24,7 +24,7 @@ options = st.sidebar.radio('Trabalho de Visualização de dados:', ['Sobre','Sal
 
 if options == 'Sobre':
     st.markdown("""
-    # Trabalho da disciplina Visualização de dados - PPGC
+    # Trabalho da disciplina Visualização de dados - PPGCC
     ### Utilizando dados do State of Data, fazemos comparações entre gêneros.
     #### Grupo: Cassiano Michel, Emílio Bresolin, Marco Bochernitsan e Rodrigo Henrich
     #### Professora: Isabel Harb Manssour
